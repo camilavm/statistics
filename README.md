@@ -1,8 +1,8 @@
 # Statistics
-Statistics Challenge
+
+### Statistics Challenge
 
 RESTful API for our statistics. The main use case for the API is to calculate realtime statistics for the last 60 seconds of transactions.
-
 
 The API needs the following endpoints:
 ∙ POST /transactions – called every time a transaction is made.
@@ -10,15 +10,17 @@ The API needs the following endpoints:
 ∙ DELETE /transactions – deletes all transactions.
 
 
-Specs:
-POST /transactions
+### Specs:
+**POST /transactions**
 This endpoint is called to create a new transaction. It MUST execute in constant time and memory (O(1)).
 
+```shell
 Body:
 {
   "amount": "12.3343",
   "timestamp": "2018-07-17T09:59:51.312Z"
 }
+```
 
 Where:
 ∙ amount – transaction amount; a string of arbitrary length that is parsable as a BigDecimal
@@ -30,7 +32,7 @@ Returns: Empty body with one of the following:
 ∙ 400 – if the JSON is invalid
 ∙ 422 – if any of the fields are not parsable or the transaction date is in the future
 
-GET /statistics
+**GET /statistics**
 This endpoint returns the statistics based on the transactions that happened in the last 60 seconds. It MUST execute in constant time and memory (O(1)).
 
 Returns:
@@ -51,11 +53,11 @@ Where:
 
 All BigDecimal values always contain exactly two decimal places and use `HALF_ROUND_UP` rounding. eg: 10.345 is returned as 10.35, 10.8 is returned as 10.80
 
-DELETE /transactions
+**DELETE /transactions**
 This endpoint causes all existing transactions to be deleted
 The endpoint should accept an empty request body and return a 204 status code.
 
-Requirements:
+### Requirements:
 These are the additional requirements for the solution:
 ∙ You are free to choose any JVM language to complete the challenge in, but your application has to run in Maven or Gradle.
 ∙ The API has to be thread safe with concurrent requests.

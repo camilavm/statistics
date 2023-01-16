@@ -1,4 +1,4 @@
-# statistics
+# Statistics
 Statistics Challenge
 
 RESTful API for our statistics. The main use case for the API is to calculate realtime statistics for the last 60 seconds of transactions.
